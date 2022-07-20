@@ -2,8 +2,6 @@ from flask import Flask
 from flask_marshmallow import Marshmallow
 from db import db, init_db, query
 
-import models
-
 app = Flask(__name__)
 
 database_host = "127.0.01:5432"
