@@ -6,7 +6,7 @@ from db import db
 
 class User(db.Model):
     __tablename__ = "user"
-    contact_id = db.Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4, unique=True, nullable=False)
+    user_id = db.Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4, unique=True, nullable=False)
     first_name = db.Column(db.String(), nullable=False)
     last_name = db.Column(db.String(), nullable=False)
     create_date = db.Column(db.DateTime(), nullable=False, default=datetime.utcnow)
@@ -20,7 +20,7 @@ class User(db.Model):
 
 class UserSchema(ma.Schema):
     class Meta:
-        fields = ['contact_id', 'first_name', 'last_name', 'create_date', 'active']
+        fields = ['user_id', 'first_name', 'last_name', 'create_date', 'active']
 
 user_schema = UserSchema()
 users_schema = UserSchema(many=True)
